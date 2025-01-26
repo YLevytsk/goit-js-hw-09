@@ -1,38 +1,35 @@
 import { defineConfig } from 'vite';
 import { glob } from 'glob';
-import injectHTML from 'vite-plugin-html-inject';
-import FullReload from 'vite-plugin-full-reload';
-import SortCss from 'postcss-sort-media-queries';
+import FullReload from 'vite-plugin-full-reload'; // Оставьте если нужно, чтобы следить за изменениями в HTML
+import SortCss from 'postcss-sort-media-queries'; // Это зависит от ваших предпочтений
 
 export default defineConfig(({ command }) => {
   return {
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
-    },
-    root: 'src/public', 
+    // Убираем pлагин для инжектирования HTML
+    root: 'src/public', // Задаем путь к папке с HTML файлами
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/public/*.html'), 
+        input: glob.sync('./src/public/*.html'), // Входные HTML файлы
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
               return 'vendor';
             }
           },
-          entryFileNames: '[name].js',
-          assetFileNames: 'assets/[name]-[hash][extname]',
+          entryFileNames: '[name].js', // Файлы JS будут иметь имя страницы
+          assetFileNames: 'assets/[name]-[hash][extname]', // Статические ресурсы
         },
       },
-      outDir: '../../dist', // Переносим сборку на уровень выше
-      emptyOutDir: true,
+      outDir: '../../dist', // Выводим билд в папку dist на уровень выше
+      emptyOutDir: true, // Очищаем папку перед сборкой
     },
     plugins: [
-      injectHTML(),
-      FullReload(['./src/public/**/**.html']), // Следим за изменениями в public
+      FullReload(['./src/public/**/**.html']), // Плагин для перезагрузки при изменениях в HTML
       SortCss({
-        sort: 'mobile-first',
+        sort: 'mobile-first', // Сортировка CSS по принципу мобильной адаптивности
       }),
     ],
   };
 });
+
