@@ -75,12 +75,12 @@ galleryContainer.innerHTML = addGalleryMarkup;
 
 // Инициализация SimpleLightbox
 const lightbox = new SimpleLightbox('.gallery a', {
-  caption: true,
-  captionType: 'attr',
-  captionsData: 'alt',
-  captionPosition: 'bottom',
-  captionDelay: 250,
-});
+    caption: true,
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250
+  });
 
 console.log(lightbox); // Для отладки
 
