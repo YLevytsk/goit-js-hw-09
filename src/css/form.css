@@ -1,0 +1,33 @@
+.feedback-form {
+  margin-left: 24px;
+}
+.feedback-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+.feedback-form input,
+.feedback-form textarea {
+  width: 360px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.feedback-form input {
+  height: 40px;
+}
+.feedback-form textarea {
+  height: 80px;
+  resize: none;
+}
+.feedback-form button {
+  width: 95px;
+  height: 40px;
+  margin-top: 16px;
+  background-color: #4E75FF;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
