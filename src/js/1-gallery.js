@@ -1,9 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
-
-const images = [{
+const images = [
+  {
     preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__340.jpg',
     original: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
     description: 'Hokkaido Flower',
@@ -50,36 +49,38 @@ const images = [{
   },
 ];
 
+const galleryContainer = document.querySelector('.gallery');
 
-
-const galleryContainer = document.querySelector('.gallery')
+// Создаем разметку для галереи
 function createMarkup(pictures) {
-  return pictures.map((picture) => {
-    return `<li class="gallery-item">
-	<a class="gallery-link" href="${picture.original}">
-		<img 
-			class="gallery-image" 
-			src="${picture.preview}"
-			alt="${picture.description}" 
-			/>
-	</a>
-</li>`
-  }).join("");
-
+  return pictures
+    .map((picture) => {
+      return `<li class="gallery-item">
+        <a class="gallery-link" href="${picture.original}">
+          <img 
+            class="gallery-image" 
+            src="${picture.preview}"
+            alt="${picture.description}" 
+          />
+        </a>
+      </li>`;
+    })
+    .join('');
 }
-const addGalleryMarkup = createMarkup(images)
 
+const addGalleryMarkup = createMarkup(images);
 
+// Вставляем разметку в контейнер
 galleryContainer.innerHTML = addGalleryMarkup;
 
-
-
+// Инициализация SimpleLightbox
 const lightbox = new SimpleLightbox('.gallery a', {
   caption: true,
   captionType: 'attr',
   captionsData: 'alt',
   captionPosition: 'bottom',
-  captionDelay: 250
+  captionDelay: 250,
 });
-console.log(lightbox)
+
+console.log(lightbox); // Для отладки
 
