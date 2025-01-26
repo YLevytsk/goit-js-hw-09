@@ -9,11 +9,11 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: 'src/public', // Указываем папку, где находится index.html
+    root: 'src/public', 
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/public/*.html'), // Ищем HTML в папке public
+        input: glob.sync('./src/public/*.html'), 
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
