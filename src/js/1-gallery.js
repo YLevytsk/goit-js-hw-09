@@ -1,5 +1,6 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "../node_modules/simplelightbox/dist/simple-lightbox.esm.min.js";
+import "../node_modules/simplelightbox/dist/simple-lightbox.min.css";
+
 
 const images = [{
     preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__340.jpg',
