@@ -50,7 +50,7 @@ const images = [{
 
 
 
-const gallery = document.querySelector('.gallery')
+const galleryContainer = document.querySelector('.gallery')
 function createMarkup(pictures) {
   return pictures.map((picture) => {
     return `<li class="gallery-item">
