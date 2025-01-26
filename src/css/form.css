@@ -1,5 +1,6 @@
 .feedback-form {
   margin-left: 24px;
+  margin-top: 24px;
 }
 .feedback-form label {
   display: block;
@@ -9,9 +10,11 @@
 .feedback-form textarea {
   width: 360px;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #808080;
   border-radius: 4px;
   font-size: 16px;
+  display: block;
+  margin-top: 8px;
 }
 .feedback-form input {
   height: 40px;
@@ -21,6 +24,8 @@
   resize: none;
 }
 .feedback-form button {
+  border-radius: 8px;
+  padding: 8px 16px;
   width: 95px;
   height: 40px;
   margin-top: 16px;
