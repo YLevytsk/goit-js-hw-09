@@ -78,4 +78,33 @@ const lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,   // Задержка перед отображением подписи
   enableKeyboard: true // Поддержка навигации с клавиатуры
 });
+const style = document.createElement('style');
+style.textContent = `
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 156px;
+    max-width: 100%;
+    list-style-type: none;
+    margin: 0;
+    gap: 24px;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    
+  }
+  .gallery-item {
+     width: calc(33.33% - 24px);
+     margin-bottom: 24px;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 
