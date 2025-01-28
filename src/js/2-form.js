@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const STORAGE_KEY = "feedback-form-state";
     let formData = { email: "", message: "" };
 
-    // Проверяем, есть ли сохраненные данные в localStorage
+    
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
         formData = JSON.parse(savedData);
@@ -11,17 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
         form.message.value = formData.message;
     }
 
-    // Слушатель на изменения в форме
+    
     form.addEventListener("input", (event) => {
         formData[event.target.name] = event.target.value.trim();
         localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
     });
 
-    // Слушатель на отправку формы
+   
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        // Проверка на заполненность всех полей с trim()
+       
         const email = form.email.value.trim();
         const message = form.message.value.trim();
 
@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         console.log({ email, message });
-        localStorage.removeItem(STORAGE_KEY);  // Убираем сохраненные данные
-        form.reset();  // Очищаем форму
-        formData = { email: "", message: "" };  // Сброс данных
+        localStorage.removeItem(STORAGE_KEY);  
+        form.reset();  
+        formData = { email: "", message: "" };  
     });
 });
 
