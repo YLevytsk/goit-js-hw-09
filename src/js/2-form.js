@@ -21,13 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        // Проверка на заполненность всех полей
-        if (!form.email.value || !form.message.value) {
+        // Проверка на заполненность всех полей с trim()
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!email || !message) {
             alert("Fill please all fields");
             return;
         }
 
-        console.log(formData);
+        console.log({ email, message });
         localStorage.removeItem(STORAGE_KEY);  // Убираем сохраненные данные
         form.reset();  // Очищаем форму
         formData = { email: "", message: "" };  // Сброс данных
